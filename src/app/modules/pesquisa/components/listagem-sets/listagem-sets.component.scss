@@ -1,0 +1,12 @@
+.container-set {
+  height: 15vh;
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-bottom: 8px;
+}
+
+.container-set:hover {
+  background-color: #696969;
+}

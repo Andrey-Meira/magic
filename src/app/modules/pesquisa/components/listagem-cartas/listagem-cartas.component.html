@@ -1,0 +1,26 @@
+<div [@listAnimation]="cartas.length" class="row g-0 main-container">
+  <div
+    *ngFor="let item of cartas"
+    class="col-3 row me-1 rounded-3 p-3 border border-black card-carta position-relative"
+  >
+    <img class="col-6 borda-img" [src]="item.imageUrl" />
+    <div class="col-6">
+      <p class="fs-6 fw-bolder">{{ item.name }}</p>
+      <span>{{ item.manaCost }}</span>
+      <div class="div-text">{{ item.text }}</div>
+      <div
+        *ngFor="let color of item.colorIdentity"
+        class="position-absolute div-color"
+      >
+        <!-- <img
+          *ngIf="arrayCores.includes(color); else spanCor"
+          [src]="_getImge(color)"
+        /> -->
+
+        <!-- <ng-template #spanCor> -->
+        <span>{{ color }}</span>
+        <!-- </ng-template> -->
+      </div>
+    </div>
+  </div>
+</div>

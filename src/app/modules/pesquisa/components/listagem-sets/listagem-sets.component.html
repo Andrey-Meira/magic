@@ -1,0 +1,31 @@
+<div
+  [@listAnimation]="sets.length"
+  class="row g-0"
+  *ngIf="!loading && !cartas.length"
+>
+  <div
+    class="col-3 container-set me-1 rounded-3 p-3"
+    *ngFor="let item of sets"
+    (click)="abrirPacote(item.code)"
+  >
+    <h1>{{ item.name }}</h1>
+    <div>{{ item.block }}</div>
+    <div class="border rounded-3 p-2 float-end">
+      {{ item.releaseDate | date : "dd/MM/yyyy" }}
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="loading"
+  class="d-flex justify-content-center align-items-center fill-available"
+>
+  <div class="text-center">
+    <app-loading [texto]="'Abrindo os seus boosters'"></app-loading>
+  </div>
+</div>
+
+<app-listagem-cartas
+  *ngIf="!loading && cartas.length"
+  [cartas]="cartas"
+></app-listagem-cartas>
